@@ -7,15 +7,8 @@ hostname = 'localhost'
 class HTTPRequestHandler(SimpleHTTPRequestHandler):
 
   def do_GET(self) -> None:
-    if self.path == '/':
-      self.send_response(200)
-      self.send_header('Content-Type', 'application/octet-stream')
-      self.send_header('Content-Disposition', f'attachement; filename="{db_file}"');
-      self.end_headers()
-      with open(db_file, 'rb') as db:
-        self.wfile.write(db.read())
-    else:
-      self.do_GET()
+    self.path = f'/{db_file}'
+    super().do_GET()
 
 handler = HTTPRequestHandler
 

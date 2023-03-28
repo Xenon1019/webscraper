@@ -1,4 +1,4 @@
-#README#
+# README
 
 Install the python requirments with
 

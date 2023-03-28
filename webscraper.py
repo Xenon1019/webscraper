@@ -20,8 +20,9 @@ def get_link_data(link):
     publish_date = get_meta_property('article:published_time')['content'][:10]
 
     return [url, headline, author, publish_date]
-print(__name__)
-if __name__ == 'main':
+
+
+if __name__ == '__main__':
     response = requests.get(url).text
     soup = BeautifulSoup(response, bs4_parser)
 

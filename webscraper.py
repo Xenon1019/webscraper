@@ -78,8 +78,8 @@ class Scraper:
   def write_to_db(self, file=db_file):
     if self.last_saved_file is None:
       raise Exception('No file to write to database. First run write_to_csv.')
+    conn = sqlite3.connect(file)
     try:
-      conn = sqlite3.connect(file)
       cursor = conn.cursor()
       table_name = 'Articles'
       cursor.execute(f'''CREATE TABLE IF NOT EXISTS {table_name} (

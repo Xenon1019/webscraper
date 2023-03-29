@@ -1,5 +1,9 @@
 *.csv
 *.db
 .*
+__pycache__/
+*.py[cod]
+pip-log.txt
+pip-delete-this-directory.txt
 !sample_output/*.db
 !sample_output/*.csv

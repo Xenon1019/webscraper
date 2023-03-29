@@ -89,7 +89,8 @@ class Scraper:
         author TEXT,
         date 
       );''')
-
+      #Delete existing data(if any) so no id collisons can occur.
+      cursor.execute(f'DELETE FROM {table_name};')
       with open(self.last_saved_file) as csv_file_handle:
         csv_reader = csv.reader(csv_file_handle)
         next(csv_reader)  #Skip the headers
